@@ -18,25 +18,51 @@ public class Main {
         board[2][1] = ' ';
         board[2][2] = ' ';
 
-        simulatedBoard(board);
+
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter player 1 name please");
+//        System.out.println("Enter player 1 name please");
 
-//        try catch if user puts in something else than a string?
-        String playerName1 = scanner.nextLine();
-        System.out.println("Player 1 name is " + playerName1);
-        System.out.println("Enter player 2 name please");
-        String playerName2 = scanner.nextLine();
-        System.out.println("Player 2 name is " + playerName2);
-        scanner.close();
+//    Scanner input for users.
+//        String playerName1 = scanner.nextLine();
+//        System.out.println("Player 1 name is " + playerName1);
+//        System.out.println("Enter player 2 name please");
+//        String playerName2 = scanner.nextLine();
+//        System.out.println("Player 2 name is " + playerName2);
+
+        System.out.println("Choose a empty square");
+        String userInput = scanner.nextLine();
+
+        if (userInput.equals("1")) {
+            board[0][0] = 'x';
+        } else if (userInput.equals("2")) {
+            board[0][1] = 'x';
+        } else if (userInput.equals("3")) {
+            board[0][2] = 'x';
+        } else if (userInput.equals("4")) {
+            board[1][0] = 'x';
+        } else if (userInput.equals("5")) {
+            board[1][1] = 'x';
+        } else if (userInput.equals("6")) {
+            board[1][2] = 'x';
+        } else if (userInput.equals("7")) {
+            board[2][0] = 'x';
+        } else if (userInput.equals("8")) {
+            board[2][1] = 'x';
+        } else if (userInput.equals("9")) {
+            board[2][2] = 'x';
+        } else {
+            System.out.println("Invalid input, must choose a number between 1 and 9");
+        }
+        simulatedBoard(board);
+
 
 
 
 
     }
 
-    //    Method that shows the simulated play board, change to char instead of string?, make private later
+    //    Method that shows the simulated play board, make private later
     static public void simulatedBoard(char [][] board) {
         System.out.println(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
         System.out.println("--+---+--");
@@ -66,8 +92,12 @@ print out board, change 2d array[][] for actual user input values?
 OOP -> board as a class? interface?, test is FAILED if everything is on main, show that you can use OOP.
 clean up all code before turning it in. try at least
 scanner pressing enter without a value, something something "try again"?
-Change String board to a char? fewer complications? -> research.
 if else code block, to make user input valid? -> if user input is 1 then [0][0] -> x or o, starting from the top right corner
+
+
+ */
+/*MUST FIX
+
 
 
  */
