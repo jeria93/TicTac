@@ -42,3 +42,23 @@ public class Main {
 
     }
 }
+
+/* Ideas
+2d array for checkboard? 1-9?
+scanner for user 1 and 2 input?
+try catch -> what if user puts other values than int/string? default values?
+rules? how to understand the game?
+scanner.close()?
+player 1 = x
+player 2 = o
+player 1, your turn..
+player 2 your turn..
+
+if statemente/switch, case block -> if square is already taken, return? "square is already taken, try a new one"
+Nobody won, tie? start over?
+set properties as private, no need for someone to play around the "board"?, scores?
+scanner -> Player 1, what's your name? - enter name
+scanner -> Player 2, what's your name? - enter name
+print out board, change 2d array[][] for actual user input values?
+
+ */
