@@ -7,15 +7,17 @@ public class Main {
     public static void main(String[] args) {
 
         String[][] board = new String[3][3];
-        board[0][0] = "";
-        board[0][1] = "";
-        board[0][2] = "";
-        board[1][0] = "";
-        board[1][1] = "";
-        board[1][2] = "";
-        board[2][0] = "";
-        board[2][1] = "";
-        board[2][2] = "";
+        board[0][0] = " ";
+        board[0][1] = " ";
+        board[0][2] = " ";
+        board[1][0] = " ";
+        board[1][1] = " ";
+        board[1][2] = " ";
+        board[2][0] = " ";
+        board[2][1] = " ";
+        board[2][2] = " ";
+
+        simulatedBoard(board);
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter player 1 name please");
@@ -30,12 +32,16 @@ public class Main {
 
 
 
+
     }
 
-    public void simulatedBoard(String [][] board) {
-        System.out.println(board[0][0] + " " + board[0][1] + " " + board[0][2]);
-        System.out.println(board[1][0] + " " + board[1][1] + " " + board[1][2]);
-        System.out.println(board[2][0] + " " + board[2][1] + " " + board[2][2]);
+//    Method that shows the simulated play board, change to char instead of string?, make private later
+    static public void simulatedBoard(String [][] board) {
+        System.out.println(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
+        System.out.println("--+---+--");
+        System.out.println(board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
+        System.out.println("--+---+--");
+        System.out.println(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
     }
 }
 
@@ -58,6 +64,7 @@ scanner -> Player 2, what's your name? - enter name
 print out board, change 2d array[][] for actual user input values?
 OOP -> board as a class? interface?, test is FAILED if everything is on main, show that you can use OOP.
 clean up all code before turning it in. try at least
+scanner pressing enter without a value, something something "try again"?
 
 
  */
