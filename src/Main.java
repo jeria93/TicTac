@@ -18,11 +18,15 @@ public class Main {
         board[2][2] = "";
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter player name please");
+        System.out.println("Enter player 1 name please");
 
 //        try catch if user puts in something else than a string?
-        String playerName = scanner.nextLine();
-        System.out.println("Player name is " + playerName);
+        String playerName1 = scanner.nextLine();
+        System.out.println("Player 1 name is " + playerName1);
+        System.out.println("Enter player 2 name please");
+        String playerName2 = scanner.nextLine();
+        System.out.println("Player 2 name is " + playerName2);
+        scanner.close();
 
 
 
@@ -46,12 +50,14 @@ player 2 = o
 player 1, your turn..
 player 2 your turn..
 
-if statemente/switch, case block -> if square is already taken, return? "square is already taken, try a new one"
+if statement/switch, case block -> if square is already taken, return? "square is already taken, try a new one"
 Nobody won, tie? start over?
 set properties as private, no need for someone to play around the "board"?, scores?
 scanner -> Player 1, what's your name? - enter name
 scanner -> Player 2, what's your name? - enter name
 print out board, change 2d array[][] for actual user input values?
-OOP -> board as a class? interface?
+OOP -> board as a class? interface?, test is FAILED if everything is on main, show that you can use OOP.
+clean up all code before turning it in. try at least
+
 
  */
