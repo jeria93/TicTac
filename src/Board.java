@@ -77,10 +77,17 @@ public class Board {
 
         while(true) {
             System.out.println("Player " + player + " turn");
-            System.out.println(player + " pick a row please"); //must choose between 0-2
+            System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
             try {
                 rows = Integer.parseInt(scanner.nextLine());
 
+            } catch (Exception e) {
+                System.out.println("Invalid input. try entering a number");
+                continue;
+            }
+            System.out.println(player + " pick a column please");//0-1-2 ↓
+            try {
+                cols = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
                 System.out.println("Invalid input. try entering a number");
                 continue;
