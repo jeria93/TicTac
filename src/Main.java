@@ -10,101 +10,7 @@ public class Main {
         Board b1 = new Board();
         b1.gameInitialising();
 
-//        Remove this board?
-         char[][] board = {
 
-                {' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}
-        };
-
-
-
-
-//        System.out.println("Enter player 1 name please");
-
-//    Scanner input for users.
-//        String playerName1 = scanner.nextLine();
-//        System.out.println("Player 1 name is " + playerName1);
-//        System.out.println("Enter player 2 name please");
-//        String playerName2 = scanner.nextLine();
-//        System.out.println("Player 2 name is " + playerName2);
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a empty square");
-        String userInput;
-        boolean validInput;
-
-
-
-
-
-        do {
-
-            userInput = scanner.nextLine();
-//            This variable is used to se if the input of the user is correct.
-            validInput = true;
-
-            switch (userInput) {
-                case "1":
-                    board[0][0] = 'x';
-                    break;
-
-                case "2":
-                    board[0][1] = 'x';
-                    break;
-
-                case "3":
-                    board[0][2] = 'x';
-                    break;
-
-                case "4":
-                    board[1][0] = 'x';
-                    break;
-
-                case "5":
-                    board[1][1] = 'x';
-                    break;
-
-                case "6":
-                    board[1][2] = 'x';
-                    break;
-
-                case "7":
-                    board[2][0] = 'x';
-                    break;
-
-                case "8":
-                    board[2][1] = 'x';
-                    break;
-
-                case "9":
-                    board[2][2] = 'x';
-                    break;
-                default:
-                    System.out.println("Invalid input, choose a number between 1 and 9");
-                    validInput = false;
-                    break;
-            }
-
-        } while (!validInput);
-
-
-
-        simulatedBoard(board);
-
-
-
-
-
-    }
-
-    //    Method that shows the simulated play board, make private later
-    public static void simulatedBoard(char [][] board) {
-        System.out.println(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
-        System.out.println("--+---+--");
-        System.out.println(board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
-        System.out.println("--+---+--");
-        System.out.println(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
     }
 
 
@@ -138,3 +44,92 @@ simulatedBoard -> interface, then have a class to implement it.
 
 extract methods on Mac = (option + command + m)
  */
+
+//        System.out.println("Enter player 1 name please");
+
+//    Scanner input for users.
+//        String playerName1 = scanner.nextLine();
+//        System.out.println("Player 1 name is " + playerName1);
+//        System.out.println("Enter player 2 name please");
+//        String playerName2 = scanner.nextLine();
+//        System.out.println("Player 2 name is " + playerName2);
+
+//  do {
+//
+//            userInput = scanner.nextLine();
+////            This variable is used to se if the input of the user is correct.
+//            validInput = true;
+//
+//            switch (userInput) {
+//                case "1":
+//                    board[0][0] = 'x';
+//                    break;
+//
+//                case "2":
+//                    board[0][1] = 'x';
+//                    break;
+//
+//                case "3":
+//                    board[0][2] = 'x';
+//                    break;
+//
+//                case "4":
+//                    board[1][0] = 'x';
+//                    break;
+//
+//                case "5":
+//                    board[1][1] = 'x';
+//                    break;
+//
+//                case "6":
+//                    board[1][2] = 'x';
+//                    break;
+//
+//                case "7":
+//                    board[2][0] = 'x';
+//                    break;
+//
+//                case "8":
+//                    board[2][1] = 'x';
+//                    break;
+//
+//                case "9":
+//                    board[2][2] = 'x';
+//                    break;
+//                default:
+//                    System.out.println("Invalid input, choose a number between 1 and 9");
+//                    validInput = false;
+//                    break;
+//            }
+//
+//        } while (!validInput);
+
+//        Remove this board?
+//         char[][] board = {
+//
+//                {' ', ' ', ' '},
+//                {' ', ' ', ' '},
+//                {' ', ' ', ' '}
+//        };
+
+//
+//
+//
+//
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Choose a empty square");
+//        String userInput;
+//        boolean validInput;
+//
+//
+
+
+//    //    Method that shows the simulated play board, make private later
+//    public static void simulatedBoard(char [][] board) {
+//        System.out.println(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
+//        System.out.println("--+---+--");
+//        System.out.println(board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
+//        System.out.println("--+---+--");
+//        System.out.println(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
+//    }
+
