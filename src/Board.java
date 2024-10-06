@@ -71,6 +71,12 @@ public class Board {
 
     }
 
+    public void playerTurn(String player) {
+        System.out.println("Player " + player + " turn");
+        System.out.println(player + " choose a square please");
+
+    }
+
 
 
 
