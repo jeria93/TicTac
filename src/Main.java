@@ -8,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
 
         Board b1 = new Board();
-        b1.boardIsDisplayed();
+        b1.gameInitialising();
 
+//        Remove this board?
          char[][] board = {
 
                 {' ', ' ', ' '},
@@ -122,7 +123,7 @@ player 2 your turn..
 keep track of who's turn it is, boolean values?, player1Turn = true, player2Turn = false ??, compare the values in a method?
 if statement, else if /switch, case block -> if square is already taken, return? "square is already taken, try a new one"
 Nobody won, tie? start over?
-set properties as private, no need for someone to play around the "board"?, scores?
+set properties as private, no need for someone to play around the "board"?, scores?, names, rows, columns etc
 scanner -> Player 1, what's your name? - enter name
 scanner -> Player 2, what's your name? - enter name
 print out board, change 2d array[][] for actual user input values?

@@ -16,7 +16,7 @@ public class Board {
     private boolean win;
 
 
-    //    Contructor - give all the types "ready values"
+    //    Contructor - give all the types "ready to start values"
     public Board() {
         rows = 0;
         cols = 0;
@@ -52,10 +52,25 @@ public class Board {
         System.out.println("test test demo");
         for (int row = 0; row<board.length; row++) {
             for (int col = 0; col<board[row].length; col++) {
-                System.out.println(board[row][col]);
+                System.out.print(board[row][col]);
             }
+            System.out.println();
         }
+        System.out.println();
     }
+
+//    Change later to "startGame"(?)
+    public void gameInitialising() {
+
+//        Should be working in main, remember to import Scanner class.
+        System.out.println("Enter player 1 name please");
+        player1 = scanner.nextLine();
+        System.out.println("Enter player 2 name please");
+        player2 = scanner.nextLine();
+        boardIsDisplayed();
+
+    }
+
 
 
 
