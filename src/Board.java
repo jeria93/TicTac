@@ -6,9 +6,9 @@ public class Board {
     private String player2;
     //    Board
     private char[][] board;
-    //    To keep track of selected row, 1-9
+    //    To keep track of selected row, 1-9 ->
     private int rows;
-    //    To keep track of selected columns, 1-9, it's a 2D array
+    //    To keep track of selected columns, 1-9, it's a 2D array ↓
     private int cols;
 
     private Scanner scanner;
@@ -16,7 +16,7 @@ public class Board {
     private boolean win;
 
 
-    //    Contructor - give all the types "ready to start values"
+    //    Contractor - give all the types "ready to start values"
     public Board() {
         rows = 0;
         cols = 0;
@@ -70,6 +70,7 @@ public class Board {
         player2 = scanner.nextLine();
         boardIsDisplayed();
         playerTurn(player1);
+        playerTurn(player2);
 
     }
 
@@ -90,6 +91,12 @@ public class Board {
                 cols = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
                 System.out.println("Invalid input. try entering a number");
+                continue;
+            }
+//            Checks if player input is out of range of what the array/row/columns allow, for example row = 10,
+//            there is no such thing, column 5 = there is no such thing, enter error
+            if (rows>2 || rows<0 || cols>2 || cols<0) {
+                System.out.println("Invalid input, input out of range");
                 continue;
             }
         }
