@@ -10,7 +10,6 @@ public class Main {
         Board b1 = new Board();
         b1.gameInitialising();
 
-
     }
 
 
@@ -22,25 +21,27 @@ scanner for user 1 and 2 input?
 try catch -> what if user puts other values than int/string? default values?
 rules? how to understand the game?
 scanner.close()?
+
 player 1 = x
 player 2 = o
+
 player 1, your turn..
 player 2 your turn..
 keep track of who's turn it is, boolean values?, player1Turn = true, player2Turn = false ??, compare the values in a method?
 if statement, else if /switch, case block -> if square is already taken, return? "square is already taken, try a new one"
 Nobody won, tie? start over?
 set properties as private, no need for someone to play around the "board"?, scores?, names, rows, columns etc
-scanner -> Player 1, what's your name? - enter name
-scanner -> Player 2, what's your name? - enter name
 print out board, change 2d array[][] for actual user input values?
 OOP -> board as a class? interface?, test is FAILED if everything is on main, show that you can use OOP.
 clean up all code before turning it in. try at least
 if else code block, to make user input valid? -> if user input is 1 then [0][0] -> x or o, starting from the top right corner
 simulatedBoard -> interface, then have a class to implement it.
-
+Game NEEDS to start over if tie or somebody won, else failed task.
  */
 /*MUST FIX
-
+Keep main class clean
+subclass other classes
+use interface to implement board? game class implements interface board
 
 extract methods on Mac = (option + command + m)
  */

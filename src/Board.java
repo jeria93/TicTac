@@ -16,7 +16,7 @@ public class Board {
     private boolean win;
 
 
-    //    Contractor - give all the types "ready to start values"
+    //    Constructor - give all the types "ready to start values"
     public Board() {
         rows = 0;
         cols = 0;
@@ -49,7 +49,6 @@ public class Board {
     }
 
     public void boardIsDisplayed() {
-//        change to the game starts
         System.out.println("test test demo");
         for (int row = 0; row<board.length; row++) {
             for (int col = 0; col<board[row].length; col++) {
@@ -99,6 +98,13 @@ public class Board {
                 System.out.println("Invalid input, input out of range");
                 continue;
             }
+//            if the square is already taken
+            if(board[rows][cols] == '-') {
+                System.out.println("square is taken");
+                continue;
+            }
+            break;
+
         }
     }
 
