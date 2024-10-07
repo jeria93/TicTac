@@ -99,7 +99,7 @@ public class Board {
                 continue;
             }
 //            if the square is already taken
-            if(board[rows][cols] == '-') {
+            if(board[rows][cols] != '-') {
                 System.out.println("square is taken");
                 continue;
             }
@@ -107,15 +107,19 @@ public class Board {
 
         }
     }
+//    Player choosing square
+    public void updateScoreBoard(int row, int col, int player) {
+
+//                must check if player has won first? make boolean?, method?
+            hasAnyoneWon();
+    }
 
 
+    public boolean hasAnyoneWon() {
 
-
-
-
-//    public boolean gameOver() {
-//
-//        System.out.println("Board");
-//
-//    }
+//        Check the score, add the score logic for the player who is winning/has won?,
+//        compare the board using the values in the char array
+        System.out.println("Board");
+            return true;
+    }
 }
