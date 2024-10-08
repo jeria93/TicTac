@@ -62,7 +62,7 @@ public class Board {
     //    Change later to "startGame"(?)
     public void gameInitialising() {
 
-//        Should be working in main, remember to import Scanner class.
+//        Should be working in main
         System.out.println("Enter player 1 name please");
         player1 = scanner.nextLine();
         System.out.println("Enter player 2 name please");
@@ -107,24 +107,39 @@ public class Board {
 
         }
     }
-//    Player choosing square
-    public void updateScoreBoard(int row, int col, int player) {
+//    Player choosing square()
+    public void updateScoreBoard(int row, int col, String player) {
+
+        if (player.equals(player1)) {
+            board[row][col] = 'X';
+            boardIsDisplayed();
+            if (hasAnyoneWon()) {
+                //Game Ends
+            }
+        }
+
+
+
 
 //                must check if player has won first? make boolean?, method?
             hasAnyoneWon();
     }
 
 
+//    Refactor at a later point?
     public boolean hasAnyoneWon() {
 
     for (int i = 0; i<3; i++) {
+//        Checks rows -> if any row has three same char/symbols xxx or ooo, loop starts with 0-1-2
         if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
             return true;
         }
+//        Checks the columns
         for (int j = 0; j<3; j++) {
             if(board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
                 return true;
             }
+//            Checks diagonally for both ways.
             if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != '-') {return true;}
             if(board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != '-') {return true;}
 

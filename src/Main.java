@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Board b1 = new Board();
-        b1.hasAnyoneWon();
+        b1.boardIsDisplayed();
 
     }
 
@@ -13,9 +13,6 @@ public class Main {
 }
 
 /* Ideas
-2d array for checkboard? 1-9?
-scanner for user 1 and 2 input?
-try catch -> what if user puts other values than int/string? default values?
 rules? how to understand the game?
 scanner.close()?
 
