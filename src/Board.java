@@ -107,6 +107,7 @@ public class Board {
 
         }
     }
+
 //    Player choosing square()
     public void updateScoreBoard(int row, int col, String player) {
 
@@ -117,11 +118,6 @@ public class Board {
                 //Game Ends
             }
         }
-
-
-
-
-//                must check if player has won first? make boolean?, method?
             hasAnyoneWon();
     }
 
@@ -147,5 +143,10 @@ public class Board {
 
     }
            return false;
+    }
+
+//    Game ends. somebody won, this method is maybe needed in "hasAnyoneWon"?/updateScoreBoard
+    public void GameOver() {
+        System.out.println("Game Over");
     }
 }
