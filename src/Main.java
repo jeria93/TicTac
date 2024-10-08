@@ -5,8 +5,17 @@ public class Main {
     public static void main(String[] args) {
 
         Board b1 = new Board();
-        b1.boardIsDisplayed();
+        b1.gameInitialising();
 
+        while(true) {
+            b1.playerTurn(b1.getPlayer1());
+            if(b1.isWin())
+                break;
+            b1.playerTurn(b1.getPlayer2());
+            if(b1.isWin()) {
+                   break;
+            }
+        }
     }
 
 

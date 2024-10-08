@@ -35,19 +35,6 @@ public class Board {
         win = false;
     }
 
-    //    Getters for player names, tracked wins/losses
-    public String getPlayer1() {
-        return player1;
-    }
-
-    public String getPlayer2() {
-        return player2;
-    }
-
-    public boolean isWin() {
-        return win;
-    }
-
     public void boardIsDisplayed() {
         System.out.println("Lets play");
         for (int row = 0; row<board.length; row++) {
@@ -70,6 +57,7 @@ public class Board {
         boardIsDisplayed();
         playerTurn(player1);
         playerTurn(player2);
+
 
     }
 
@@ -94,12 +82,12 @@ public class Board {
             }
 //            Checks if player input is out of range of what the array/row/columns allow, for example row = 10,
 //            there is no such thing, column 5 = there is no such thing, enter error
-            if (rows>2 || rows<0 || cols>2 || cols<0) {
+            if (rows > 2 || rows < 0 || cols > 2 || cols < 0) {
                 System.out.println("Invalid input, input out of range");
                 continue;
             }
 //            if the square is already taken
-            if(board[rows][cols] != '-') {
+            if (board[rows][cols] != '-') {
                 System.out.println("square is taken");
                 continue;
             }
@@ -115,10 +103,16 @@ public class Board {
             board[row][col] = 'X';
             boardIsDisplayed();
             if (hasAnyoneWon()) {
-                //Game Ends
+                GameOver(player1);
+            }
+        } else {
+            board[row][col] = 'o';
+            boardIsDisplayed();
+            if (hasAnyoneWon()) {
+                GameOver(player2);
             }
         }
-            hasAnyoneWon();
+
     }
 
 
@@ -146,7 +140,22 @@ public class Board {
     }
 
 //    Game ends. somebody won, this method is maybe needed in "hasAnyoneWon"?/updateScoreBoard
-    public void GameOver() {
+    public void GameOver(String player) {
+
+        win = true;
         System.out.println("Game Over");
+    }
+
+    //    Getters for player names, tracked wins/losses
+    public String getPlayer1() {
+        return player1;
+    }
+
+    public String getPlayer2() {
+        return player2;
+    }
+
+    public boolean isWin() {
+        return win;
     }
 }
