@@ -1,3 +1,4 @@
+import javax.print.DocFlavor;
 import java.util.Scanner;
 
 public class Board {
@@ -66,10 +67,7 @@ public class Board {
             System.out.println("Player " + player + " turn");
             System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
             try {
-//                Bug, doesn't read string "0" or any number
                 rows = Integer.parseInt(scanner.nextLine());
-//                Trying to debug
-                System.out.println("rows reads " + rows);
 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");

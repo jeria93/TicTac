@@ -20,7 +20,10 @@ public class Main {
 
 
 }
-//TODO
+//TODO - Before hand in
+// Fix the bug when entering a string number such as "0", because it doesnt read as a int 0 when players turn is to selected row OR column(playerTurn)method.
+// Fix the entire file, move things around, implement OOP for pass the test
+// Change names on classes/methods/variables to easier reading code. Don't be Shakespare
 
 /* Ideas
 rules? how to understand the game?
