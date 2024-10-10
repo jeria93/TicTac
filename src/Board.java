@@ -24,9 +24,9 @@ public class Board {
 //3x3 simulated board
         board = new char[3][3];
 //        Loops the rows in the 2d array ->
-        for (int row = 0; row<board.length; row++) {
+        for (int row = 0; row < board.length; row++) {
 
-            for (int col = 0; col<board[row].length; col++) {
+            for (int col = 0; col < board[row].length; col++) {
                 board[row][col] = '-';
             } // Loops the columns of the 2d array field ↓
 
@@ -37,8 +37,8 @@ public class Board {
 
     public void boardIsDisplayed() {
         System.out.println("Lets play");
-        for (int row = 0; row<board.length; row++) {
-            for (int col = 0; col<board[row].length; col++) {
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
                 System.out.print(board[row][col]);
             }
             System.out.println(); //If not inserted console shows -------------
@@ -63,7 +63,7 @@ public class Board {
 
     public void playerTurn(String player) {
 
-        while(true) {
+        while (true) {
             System.out.println("Player " + player + " turn");
             System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
             try {
@@ -105,7 +105,7 @@ public class Board {
         updateScoreBoard(rows, cols, player);
     }
 
-//    Player choosing square()
+    //    Player choosing square()
     public void updateScoreBoard(int row, int col, String player) {
 
         if (player.equals(player1)) {
@@ -113,42 +113,50 @@ public class Board {
             boardIsDisplayed();
             if (hasAnyoneWon()) {
                 GameOver(player1);
+            } else {
+                checkForDraw();
             }
         } else {
-            board[row][col] = 'o';
+            board[row][col] = 'O';
             boardIsDisplayed();
             if (hasAnyoneWon()) {
                 GameOver(player2);
+            } else {
+                checkForDraw();
             }
         }
 
     }
 
 
-//    Refactor at a later point?
+    //    Refactor at a later point?
     public boolean hasAnyoneWon() {
 
-    for (int i = 0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
 //        Checks rows -> if any row has three same char/symbols xxx or ooo, loop starts with 0-1-2
-        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
-            return true;
-        }
-//        Checks the columns
-        for (int j = 0; j<3; j++) {
-            if(board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
+            if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != '-') {
                 return true;
             }
+//        Checks the columns
+            for (int j = 0; j < 3; j++) {
+                if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
+                    return true;
+                }
 //            Checks diagonally for both ways.
-            if(board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != '-') {return true;}
-            if(board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != '-') {return true;}
+                if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != '-') {
+                    return true;
+                }
+                if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != '-') {
+                    return true;
+                }
+
+            }
 
         }
-
-    }
-           return false;
+        return false;
     }
 
-//    Game ends. somebody won, this method is maybe needed in "hasAnyoneWon"?/updateScoreBoard
+    //    Game ends. somebody won, this method is maybe needed in "hasAnyoneWon"?/updateScoreBoard
     public void GameOver(String player) {
 
         win = true;
@@ -181,17 +189,32 @@ public class Board {
         boolean isDraw = true;
 
 //        Check if there is any empty slots on the board
-        for (int row = 0; row < board.length;  row++) {
+        for (int row = 0; row < board.length; row++) {
 
-            for (int col = 0; col<board[row].length; col++) {
-                if(board[row][col] == '-') {
+            for (int col = 0; col < board[row].length; col++) {
+                if (board[row][col] == '-') {
                     isDraw = false;
                     break;
                 }
 
+            }
+        }
+        if(isDraw && !win) {
+            System.out.println("Its a draw!");
+            //Restart game?
+        }
+    }
+
+    public void resetGame() {
+
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                board[row][col] = '-';
+            }
         }
 
-
+        win = false;
+        boardIsDisplayed();
 
     }
 }
