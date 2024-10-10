@@ -17,11 +17,8 @@ public class Main {
             }
         }
     }
-
-
 }
 //TODO - Before hand in
-// Fix the bug when entering a string number such as "0", because it doesnt read as a int 0 when players turn is to selected row OR column(playerTurn)method.
 // Fix the entire file, move things around, implement OOP for pass the test
 // Change names on classes/methods/variables to easier reading code. Don't be Shakespare
 
@@ -37,7 +34,7 @@ player 2 your turn..
 keep track of who's turn it is, boolean values?, player1Turn = true, player2Turn = false ??, compare the values in a method?
 if statement, else if /switch, case block -> if square is already taken, return? "square is already taken, try a new one"
 Nobody won, tie? start over?
-set properties as private, no need for someone to play around the "board"?, scores?, names, rows, columns etc
+set properties as private, no need for someone to play around the "board"?, scores?, names, rows, columns etc.
 print out board, change 2d array[][] for actual user input values?
 OOP -> board as a class? interface?, test is FAILED if everything is on main, show that you can use OOP.
 clean up all code before turning it in. try at least

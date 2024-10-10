@@ -67,7 +67,9 @@ public class Board {
             System.out.println("Player " + player + " turn");
             System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
             try {
-                rows = Integer.parseInt(scanner.nextLine());
+                String rowInput = scanner.nextLine().trim();
+                rowInput = cleanInput(rowInput);
+                rows = Integer.parseInt(rowInput);
 
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");
@@ -76,7 +78,12 @@ public class Board {
             }
             System.out.println(player + " pick a column please");//0-1-2 ↓
             try {
-                cols = Integer.parseInt(scanner.nextLine());
+
+                String rowInput = scanner.nextLine().trim();
+                rowInput = cleanInput(rowInput);
+                cols = Integer.parseInt(rowInput);
+
+//                cols = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");
                 continue;
@@ -159,5 +166,13 @@ public class Board {
 
     public boolean isWin() {
         return win;
+    }
+
+    public String cleanInput(String input) {
+//        Removes any quotation marks from the beginning and end of the string,
+        if (input.startsWith("\"") && input.endsWith("\"")) {
+            input = input.substring(1, input.length() - 1);
+        }
+        return input;
     }
 }
