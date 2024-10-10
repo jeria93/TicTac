@@ -211,6 +211,13 @@ public class Board {
 //    Asks players for a restart of the game
     public void restartInvite() {
         System.out.println("Do you want to restart? (yes/no)");
+        String answer = scanner.nextLine().trim();
+
+        if(answer.equals("yes")) {
+            resetGame();
+        } else {
+            System.out.println("Thank you for playing, see ya!");
+        }
     }
 
     //    Should reset the entire game
