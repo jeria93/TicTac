@@ -20,6 +20,7 @@ public class Main {
 
 
 }
+//TODO
 
 /* Ideas
 rules? how to understand the game?

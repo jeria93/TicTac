@@ -10,7 +10,6 @@ public class Board {
     private int rows;
     //    To keep track of selected columns, 1-9, it's a 2D array ↓
     private int cols;
-
     private Scanner scanner;
     //    To keep track of who has won or lost
     private boolean win;
@@ -41,7 +40,7 @@ public class Board {
             for (int col = 0; col<board[row].length; col++) {
                 System.out.print(board[row][col]);
             }
-            System.out.println();
+            System.out.println(); //If not inserted console shows -------------
         }
         System.out.println();
     }
@@ -67,16 +66,20 @@ public class Board {
             System.out.println("Player " + player + " turn");
             System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
             try {
+//                Bug, doesn't read string "0" or any number
                 rows = Integer.parseInt(scanner.nextLine());
+//                Trying to debug
+                System.out.println("rows reads " + rows);
 
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");
+
                 continue;
             }
             System.out.println(player + " pick a column please");//0-1-2 ↓
             try {
                 cols = Integer.parseInt(scanner.nextLine());
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");
                 continue;
             }
@@ -92,8 +95,9 @@ public class Board {
                 continue;
             }
             break;
-
         }
+
+        updateScoreBoard(rows, cols, player);
     }
 
 //    Player choosing square()
