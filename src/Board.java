@@ -36,6 +36,7 @@ public class Board {
     }
 
     public void boardIsDisplayed() {
+//        change to gameboard
         System.out.println("Lets play");
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
@@ -201,10 +202,18 @@ public class Board {
         }
         if(isDraw && !win) {
             System.out.println("Its a draw!");
-            //Restart game?
+//            Resets game, needs a restart instead?
+//            resetGame();
+            restartInvite();
         }
     }
 
+//    Asks players for a restart of the game
+    public void restartInvite() {
+        System.out.println("Do you want to restart? (yes/no)");
+    }
+
+    //    Should reset the entire game
     public void resetGame() {
 
         for (int row = 0; row < board.length; row++) {
@@ -215,6 +224,7 @@ public class Board {
 
         win = false;
         boardIsDisplayed();
+        gameInitialising();
 
     }
 }

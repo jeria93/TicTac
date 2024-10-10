@@ -21,6 +21,7 @@ public class Main {
 //TODO - Before hand in
 // Fix the entire file, move things around, implement OOP for pass the test
 // Change names on classes/methods/variables to easier reading code. Don't be Shakespare
+// Restart, check for draw, asks players for a new game?
 
 /* Ideas
 rules? how to understand the game?
