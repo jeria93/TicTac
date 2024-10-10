@@ -175,4 +175,23 @@ public class Board {
         }
         return input;
     }
+
+    public void checkForDraw() {
+
+        boolean isDraw = true;
+
+//        Check if there is any empty slots on the board
+        for (int row = 0; row < board.length;  row++) {
+
+            for (int col = 0; col<board[row].length; col++) {
+                if(board[row][col] == '-') {
+                    isDraw = false;
+                    break;
+                }
+
+        }
+
+
+
+    }
 }
