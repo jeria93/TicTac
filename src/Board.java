@@ -21,8 +21,7 @@ public class Board {
         rows = 0;
         cols = 0;
         scanner = new Scanner(System.in);
-//3x3 simulated board
-        board = new char[3][3];
+        board = new char[3][3]; //3x3 simulated board
 //        Loops the rows in the 2d array ->
         for (int row = 0; row < board.length; row++) {
 
@@ -161,7 +160,8 @@ public class Board {
     public void GameOver(String player) {
 
         win = true;
-        System.out.println("Game Over");
+        System.out.println("Game Over!, player " + player + " won");
+        restartInvite();
     }
 
     //    Getters for player names, tracked wins/losses
@@ -208,9 +208,9 @@ public class Board {
         }
     }
 
-//    Asks players for a restart of the game
+//    Asks players for a "REMATCH" of the game
     public void restartInvite() {
-        System.out.println("Do you want to restart? (yes/no)");
+        System.out.println("Do you want a rematch? (yes/no)");
         String answer = scanner.nextLine().trim();
 
         if(answer.equals("yes")) {
@@ -232,6 +232,5 @@ public class Board {
         win = false;
         boardIsDisplayed();
         gameInitialising();
-
     }
 }
