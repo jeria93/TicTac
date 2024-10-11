@@ -7,13 +7,23 @@ public class Main {
         Board b1 = new Board();
         b1.startGame();
 
-        while(true) {
+        while (true) {
             b1.playerTurn(b1.getPlayer1());
-            if(b1.isWin())
-                break;
+            if (b1.isWin()) {
+                if (!b1.rematch()) {
+                    System.out.println("thanks for playing");
+                    break;
+                }
+                b1.resetGame();
+            }
+
             b1.playerTurn(b1.getPlayer2());
-            if(b1.isWin()) {
-                   break;
+            if (b1.isWin()) {
+                if (!b1.rematch()) {
+                    System.out.println("thanks for playing");
+                    break;
+                }
+                b1.resetGame();
             }
         }
     }
