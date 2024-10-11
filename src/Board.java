@@ -101,13 +101,7 @@ public class Board {
                 System.out.println("Invalid input. try entering a number");
                 continue;
             }
-//            Checks if player input is out of range of what the array/row/columns allow, for example row = 10,
-//            there is no such thing, column 5 = there is no such thing, enter error
 
-            if (rows > 2 || rows < 0 || cols > 2 || cols < 0) {
-                System.out.println("Invalid input, input out of range");
-                continue;
-            }
 //            if the square is already taken
             if (board[rows][cols] != '-') {
                 System.out.println("square is taken");
