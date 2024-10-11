@@ -70,47 +70,82 @@ public class Board {
         System.out.println("Enter player 2 name please");
         player2 = scanner.nextLine();
         boardIsDisplayed();
-        playerTurn(player1);
-        playerTurn(player2);
+        while (!win) {
+            playerTurn(player1);
+            if(win) {
+                break;
+            }
+            playerTurn(player2);
+        }
+//        playerTurn(player1);
+//        playerTurn(player2);
     }
 
     public void playerTurn(String player) {
 
         while (true) {
             System.out.println("Player " + player + " turn");
-            System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
 
-            try {
+            // Hantera radinmatning
+            int rows = -1;
+            while (rows < 0 || rows > 2) {
+                System.out.println(player + ", pick a row (0-2)");
+                String rowInput = cleanInput(scanner.nextLine());
 
-                String rowInput = scanner.nextLine().trim();
-                rowInput = cleanInput(rowInput);
-                rows = Integer.parseInt(rowInput);
-
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. try entering a number");
-
-                continue;
-            }
-            System.out.println(player + " pick a column please");//0-1-2 ↓
-            try {
-                String rowInput = scanner.nextLine().trim();
-                rowInput = cleanInput(rowInput);
-                cols = Integer.parseInt(rowInput);
-
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. try entering a number");
-                continue;
+                if (rowInput.equals("0") || rowInput.equals("1") || rowInput.equals("2")) {
+                    try {
+//                        Try to convert string to int
+                        rows = Integer.parseInt(rowInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Parsing went wrong " + e.getMessage());
+                    }
+                } else {
+                    System.out.println("Invalid input. Please enter 0, 1, or 2.");
+                }
             }
 
-//            if the square is already taken
+            int cols = -1;
+            while (cols < 0 || cols > 2) {
+                System.out.println(player + ", pick a column (0-2)");
+                String colInput = cleanInput(scanner.nextLine());
+
+                if (colInput.equals("0") || colInput.equals("1") || colInput.equals("2")) {
+                    try {
+                        cols = Integer.parseInt(colInput); // Försök konvertera sträng till int
+                    } catch (NumberFormatException e) {
+                        System.out.println("Parsing went wrong " + e.getMessage());
+                    }
+                } else {
+                    System.out.println("Invalid input. Please enter 0, 1, or 2.");
+                }
+            }
+
+//            System.out.println("Rutan [" + rows + ", " + cols + "] innehåller: " + board[rows][cols]); // Debug
+//            if (board[rows][cols] != '-') {
+//                System.out.println("Square is taken, please choose another.");
+//                continue;
+//            }
+
+            // Check if square is already taken
             if (board[rows][cols] != '-') {
-                System.out.println("square is taken");
-                continue;
+                System.out.println("Square is taken, please choose another.");
+               continue;
+            }
+
+            updateScoreBoard(rows,cols,player);
+
+            if (hasAnyoneWon()) {
+                GameOver(player);
+                break; // Avsluta while-loopen om spelet är över
+            } else {
+                checkForDraw();
             }
             break;
+//            break;
         }
 
-        updateScoreBoard(rows, cols, player);
+//        updateScoreBoard(rows, cols, player);
+
     }
 
     //    Player choosing square()
@@ -169,6 +204,7 @@ public class Board {
 
         win = true;
         System.out.println("Game Over!, player " + player + " won");
+//        When selected no, game should end, not run again.
         restartInvite();
     }
 
@@ -184,14 +220,19 @@ public class Board {
     public boolean isWin() {
         return win;
     }
-
+    //        Changed functionality, this removes unnecessary spaces, citation marks
     public String cleanInput(String input) {
-//        Removes any quotation marks from the beginning and end of the string,
-        if (input.startsWith("\"") && input.endsWith("\"")) {
-            input = input.substring(1, input.length() - 1);
-        }
-        return input;
+
+        return input.replaceAll("[^0-9]", "").trim();
     }
+
+//    public String cleanInput(String input) {
+////        Removes any quotation marks from the beginning and end of the string,
+//        if (input.startsWith("\"") && input.endsWith("\"")) {
+//            input = input.substring(1, input.length() - 1);
+//        }
+//        return input;
+//    }
 
     public void checkForDraw() {
 
@@ -225,6 +266,7 @@ public class Board {
             resetGame();
         } else {
             System.out.println("Thank you for playing, see ya!");
+
         }
     }
 
