@@ -1,6 +1,7 @@
+import javax.swing.*;
 import java.util.Scanner;
 
-public class Board {
+public class Board extends Game {
 
     private String player1;
     private String player2;
@@ -10,16 +11,10 @@ public class Board {
     private int rows;
     //    To keep track of selected columns, 1-9, it's a 2D array ↓
     private int cols;
-    private Scanner scanner;
-    //    To keep track of who has won or lost
-    private boolean win;
-
 
     //    Constructor - give all the types "ready to start values"
     public Board() {
-        rows = 0;
-        cols = 0;
-        scanner = new Scanner(System.in);
+        super();
         board = new char[3][3]; //3x3 simulated board
 //        Loops the rows in the 2d array ->
         for (int row = 0; row < board.length; row++) {
@@ -29,11 +24,9 @@ public class Board {
             } // Loops the columns of the 2d array field ↓
 
         }
-//        Nobody has won the first round
-        win = false;
     }
 
-    public void boardIsDisplayed() {
+    private void boardIsDisplayed() {
 
         System.out.println("Lets play");
         for (int row = 0; row < board.length; row++) {
@@ -45,7 +38,7 @@ public class Board {
         System.out.println();
     }
 
-    public void instructionBoard() {
+    private void instructionBoard() {
         System.out.println("| 0,0 | 0,1 | 0,2 |");
         System.out.println("| 1,0 | 1,1 | 1,2 |");
         System.out.println("| 2,0 | 2,1 | 2,2 |");
@@ -147,7 +140,7 @@ public class Board {
     }
 
     //    Player choosing square()
-    public void updateScoreBoard(int row, int col, String player) {
+    private void updateScoreBoard(int row, int col, String player) {
 
         if (player.equals(player1)) {
             board[row][col] = 'X';
@@ -166,7 +159,7 @@ public class Board {
 
 
     //    Comparing squares for different moves
-    public boolean hasAnyoneWon() {
+    private boolean hasAnyoneWon() {
 
         for (int i = 0; i < 3; i++) {
 //        Checks rows -> if any row has three same char/symbols xxx or ooo, loop starts with 0-1-2
@@ -175,33 +168,28 @@ public class Board {
             }
         }
 //        Checks the columns
-            for (int j = 0; j < 3; j++) {
-                if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
-                    return true;
-                }
+        for (int j = 0; j < 3; j++) {
+            if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != '-') {
+                return true;
             }
+        }
 
 //            Checks diagonally for both ways.
-                if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != '-') {
-                    return true;
-                }
-                if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != '-') {
-                    return true;
-                }
-            return false;
+        if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != '-') {
+            return true;
+        }
+        if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && board[1][1] != '-') {
+            return true;
+        }
+        return false;
     }
 
     //    Game ends. somebody won
-    public void gameOver(String player) {
+    private void gameOver(String player) {
 
         win = true;
         System.out.println("Game Over!, player " + player + " won");
-
-        if (!rematch()) {
-            System.out.println("Thanks for playing");
-//            Exits the program
-            System.exit(0);
-        }
+        askForRematch();
         resetGame();
     }
 
@@ -219,12 +207,12 @@ public class Board {
     }
 
     //        Changed functionality, this removes unnecessary spaces, citation marks
-    public String cleanInput(String input) {
+    private String cleanInput(String input) {
 
         return input.replaceAll("[^0-9]", "").trim();
     }
 
-    public void checkForDraw() {
+    private void checkForDraw() {
 
         boolean isDraw = true;
 
