@@ -1,4 +1,3 @@
-import javax.print.DocFlavor;
 import java.util.Scanner;
 
 public class Board {
@@ -35,7 +34,7 @@ public class Board {
     }
 
     public void boardIsDisplayed() {
-//        change to gameboard
+
         System.out.println("Lets play");
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
@@ -46,10 +45,26 @@ public class Board {
         System.out.println();
     }
 
-    //    Change later to "startGame"(?)
-    public void gameInitialising() {
+    public void instructionBoard() {
+        System.out.println("| 0,0 | 0,1 | 0,2 |");
+        System.out.println("| 1,0 | 1,1 | 1,2 |");
+        System.out.println("| 2,0 | 2,1 | 2,2 |");
+    }
+
+
+    public void startGame() {
 
 //        Should be working in main
+        System.out.println("Welcome to the ticktacktoe game, press enter to read and understand the rules");
+        scanner.nextLine();
+//        Positioning explained
+        System.out.println("""
+                Choose a number (0-1-2) that represents either a row or column to put X or O
+                0 represents the upper left row corner. 0 also represents the upper left corner column, now choose wisely
+                """);
+        instructionBoard();
+        System.out.println();
+//        scanner.nextLine();
         System.out.println("Enter player 1 name please");
         player1 = scanner.nextLine();
         System.out.println("Enter player 2 name please");
@@ -57,8 +72,6 @@ public class Board {
         boardIsDisplayed();
         playerTurn(player1);
         playerTurn(player2);
-
-
     }
 
     public void playerTurn(String player) {
@@ -66,7 +79,9 @@ public class Board {
         while (true) {
             System.out.println("Player " + player + " turn");
             System.out.println(player + " pick a row please"); //must choose between 0-1-2 ->
+
             try {
+
                 String rowInput = scanner.nextLine().trim();
                 rowInput = cleanInput(rowInput);
                 rows = Integer.parseInt(rowInput);
@@ -78,18 +93,17 @@ public class Board {
             }
             System.out.println(player + " pick a column please");//0-1-2 ↓
             try {
-
                 String rowInput = scanner.nextLine().trim();
                 rowInput = cleanInput(rowInput);
                 cols = Integer.parseInt(rowInput);
 
-//                cols = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. try entering a number");
                 continue;
             }
 //            Checks if player input is out of range of what the array/row/columns allow, for example row = 10,
 //            there is no such thing, column 5 = there is no such thing, enter error
+
             if (rows > 2 || rows < 0 || cols > 2 || cols < 0) {
                 System.out.println("Invalid input, input out of range");
                 continue;
@@ -208,7 +222,7 @@ public class Board {
         }
     }
 
-//    Asks players for a "REMATCH" of the game
+    //    Asks players for a "REMATCH" of the game
     public void restartInvite() {
         System.out.println("Do you want a rematch? (yes/no)");
         String answer = scanner.nextLine().trim();
@@ -231,6 +245,6 @@ public class Board {
 
         win = false;
         boardIsDisplayed();
-        gameInitialising();
+        startGame();
     }
 }

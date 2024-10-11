@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Board b1 = new Board();
-        b1.gameInitialising();
+        b1.startGame();
 
         while(true) {
             b1.playerTurn(b1.getPlayer1());
@@ -22,6 +22,7 @@ public class Main {
 // Fix the entire file, move things around, implement OOP for pass the test
 // Change names on classes/methods/variables to easier reading code. Don't be Shakespare
 // Restart, check for draw, asks players for a new game? REMATCH!!!
+// CHECK if bugs appear in other numbers than 0,1,2 AND if square is taken.
 
 /* Ideas
 rules? how to understand the game?
